@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <%-- %><meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %>- My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
+
+</head>
+<body>
+    <form runat="server">
+
+
+  <%-- %>     <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>--%>
+ 
+        <asp:Label ID="Lbl1" runat="server" Text="brutal"></asp:Label>
+        <br />
+        <asp:Button ID="Button2" runat="server" PostBackUrl="~/pages/BridgeList.aspx" Text="GO TO LIST" />
+        &nbsp;</p>
+        <asp:TextBox ID="Txt1" runat="server"></asp:TextBox>
+        
+
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" PostBackUrl="~/pages/BridgeList.aspx" Text="Bridge List" />
+        </p>
+        <p>
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" PostBackUrl="~/pages/editing.aspx" Text="straight To Bridge Editing by DDL" />
+        </p>
+        <p>
+            &nbsp;</p>
+               <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+            
+                   </asp:ContentPlaceHolder>
+            <hr />
+            
+        </div>
+        <footer>
+                <%--<p>&copy; <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 My ASP.NET Application</p>--%>
+            </footer>
+
+    </form>
+</body>
+</html>

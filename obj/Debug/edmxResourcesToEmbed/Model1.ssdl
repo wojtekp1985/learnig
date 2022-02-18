@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bridgeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bridge">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jni" Type="int" />
+    <Property Name="city" Type="int" />
+    <Property Name="length" Type="float" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Bridge_city">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="Bridge" Type="Self.Bridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bridge">
+        <PropertyRef Name="city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bridgeModelStoreContainer">
+    <EntitySet Name="Bridge" EntityType="Self.Bridge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bridge_city" Association="Self.FK_Bridge_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="Bridge" EntitySet="Bridge" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

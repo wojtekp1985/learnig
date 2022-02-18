@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bridgeModelStoreContainer" CdmEntityContainer="bridgeEntities">
+    <EntitySetMapping Name="Bridges">
+      <EntityTypeMapping TypeName="bridgeModel.Bridge">
+        <MappingFragment StoreEntitySet="Bridge">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="jni" ColumnName="jni" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="length" ColumnName="length" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="bridgeModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
